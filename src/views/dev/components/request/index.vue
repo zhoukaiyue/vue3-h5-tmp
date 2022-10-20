@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-18 16:28:31
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 14:07:39
+ * @LastEditTime: 2022-10-20 15:39:52
 -->
 
 <template>
@@ -17,7 +17,8 @@
 <script lang="ts">
 import { reactive, toRefs, onBeforeMount, onMounted } from 'vue';
 import { getListDev } from '@/config/apis/dev';
-import type { GetListDevParamType } from '@/config/apis/validation';
+// 导入验证器
+import type { getListDevValidator } from '@/config/apis/validation';
 export default {
     name: 'dev-request',
     props: [],
@@ -29,7 +30,7 @@ export default {
         onMounted(() => {
             console.log('3.-组件挂载到页面之后执行-------onMounted');
             // 请求参数
-            const params: GetListDevParamType = {
+            const params: getListDevValidator.ParamType = {
                 id: 1
             };
             // 加载加快
