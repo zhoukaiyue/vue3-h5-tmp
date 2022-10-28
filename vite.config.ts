@@ -69,6 +69,7 @@ export default defineConfig(({ command, mode }) => {
         },
         // 构建选项
         build: {
+            cssCodeSplit: false, //打包为一个 CSS 文件
             //构建时清空outDir目录。
             emptyOutDir: true,
             //指定生成静态资源的存放路径
@@ -105,6 +106,7 @@ export default defineConfig(({ command, mode }) => {
                     entryFileNames: 'assets/js/[name]-[hash].js',
                     chunkFileNames: 'assets/js/[name]-[hash].js',
                     // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    // 按file type分包
                     assetFileNames: (assetInfo: { name?: string }) => {
                         // img
                         if (assetInfo.name && RegImg.test(assetInfo.name)) {
@@ -119,6 +121,16 @@ export default defineConfig(({ command, mode }) => {
                             return 'assets/fonts/[name]-[hash][extname]';
                         }
                         return 'assets/[ext]/[name]-[hash][extname]';
+                    },
+                    chunkSizeWarningLimit: 1500, //上调单个模块文件限制的上限
+                    emptyOutDir: true, //清空root下dist文件夹内容
+                    // 分包配置，配置完成自动按需加载
+                    manualChunks: {
+                        vue: ['vue', 'vue-router', 'pinia'],
+                        vant: ['vant'],
+                        vconsole: ['vconsole'],
+                        tool: ['lodash', 'qs'],
+                        axios: ['axios']
                     }
                 }
             }
