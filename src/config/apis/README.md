@@ -1,32 +1,20 @@
 <!--
- * @Descripttion: 项目组axios使用说明文件
- * @version: 1.0.0
+ * @Descripttion: 接口创建规范
+ * @version:
  * @Author: zhoukai
  * @Date: 2022-10-18 17:41:55
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 15:43:55
+ * @LastEditTime: 2022-11-02 17:35:48
 -->
 
-## axios 库使用案列
+## 接口创建规范
 
-### 引入 axios 库
+🚀 项目中使用到的接口都应当在该文件夹下，同一模块或者同一功能用到的接口建议独立成一个.ts 文件。
+🚀 接口验证器同一放到该文件下的 validation 中，每个接口的验证器尽量独立成一个.ts 文件。
+🚀 每一个接口验证器应该是一个空间，空间名称以 接口名称+Validator 命名，如 接口名称 getListDev，则空间名称应该是 getListDevValidator，这样就可以尽量减少变量命名重复。
+🚀 接口验证器最终需要在文件下的 validation 中的 index.ts 文件中导出。
 
-```ts
-//dev.ts
-import { $post } from '@/packages/request';
-```
-
-### 定义接口
-
-```ts
-//dev.ts
-// 导入接口验证器，主要是对接口入参、回参类型定义，方便后期维护
-import type { getListDevValidator } from './validation';
-// 功能接口
-export const getListDev = (params: getListDevValidator.ParamType): Promise<getListDevValidator.ReturnType> => {
-    return $post('/mock/14/demo/getList', params);
-};
-```
+注： 具体可参考 dev 模块的相关接口创建规范。
 
 ### 使用方法
 
@@ -74,9 +62,9 @@ export default {
 
 ```
 ├─ apis
-│  ├─ dev.ts                                     //模块对应的接口，为了方便维护与开发，建议接口文件命名与对应的模块或页面文件命名保持一致，尽量简洁明了。
+│  ├─ dev.ts                                     //模块或同一功能依赖的相关接口
 │  ├─ README.md                                  //描述文件
-│  └─ validation                                 //验证器
-│     ├─ getListDev.ts                           //对应接口的验证器，为了方便维护与开发，建议接口验证器文件命名与对应的接口命名保持一致，尽量简洁明了。另：建议命名空间名称以 接口名称+Validator 规范命名，如 getListDevValidator。
-│     └─ index.ts                                //统一导出验证器（需要在这里将所有的接口验证器统一导出）
+│  └─ validation                                 //接口验证器
+│     ├─ getListDev.ts                           //getListDev接口的验证器
+│     └─ index.ts                                //验证器出口文件
 ```
