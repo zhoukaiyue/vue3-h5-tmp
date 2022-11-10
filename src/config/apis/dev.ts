@@ -4,12 +4,16 @@
  * @Author: zhoukai
  * @Date: 2022-10-18 17:02:54
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 15:39:16
+ * @LastEditTime: 2022-11-10 11:25:26
  */
 import { $post } from '@/packages/request';
 
 import type { getListDevValidator } from './validation';
 
 export const getListDev = (params: getListDevValidator.ParamType): Promise<getListDevValidator.ReturnType> => {
-    return $post('/mock/14/demo/getList', params);
+    return $post('/mock/14/demo/getList', params, {
+        enableCancelModel: true,
+        retryDelay: 4000, //当前请求重试间隔设置为4秒
+        retryFrequency: 2 //当前请求重试次数（重试频率）2次
+    });
 };
