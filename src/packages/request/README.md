@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-11-02 16:58:59
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-02 17:39:50
+ * @LastEditTime: 2022-11-10 11:30:16
 -->
 
 ## 基于 axios 二次封装的简约版请求库，该请求库默认支持一下功能：
@@ -30,6 +30,8 @@ export const getListDev = (params: any): Promise<any> => {
 export const getListDev = (params: any): Promise<any> => {
     return $post('/mock/14/demo/getList', params, {
         enableCancelModel: false //针对该接口关闭 取消重复请求模式
+        retryDelay: 4000, //当前请求重试间隔设置为4秒
+        retryFrequency: 2 //当前请求重试次数（重试频率）2次
     });
 };
 ```
