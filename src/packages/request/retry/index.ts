@@ -4,11 +4,11 @@
  * @Author: zhoukai
  * @Date: 2022-11-09 10:54:10
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-10 11:19:14
+ * @LastEditTime: 2022-11-21 17:27:20
  */
 
 // 工具函数之判断字符串是否是json字符串
-import { isJsonStr } from '@/utils/isJsonStr';
+import { isJsonStr } from '@/utils/validate';
 // 睡眠函数
 import { sleep } from '@/utils/sleep';
 // axios 实例类型定义

@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-11-09 15:28:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-09 17:46:53
+ * @LastEditTime: 2022-11-17 14:40:22
  * @名词解释：
  * 1、如何判定重复请求?
  * 答：如果请求地址、请求方式、请求参数一样，那么我们就能认为是同一个请求。
@@ -25,6 +25,7 @@ const pendingMap = new Map();
  */
 function addPendingMap(config: AxiosRequestConfigNew) {
     const pendingKey = generateReqKey(config);
+
     config.cancelToken = new axios.CancelToken((cancel) => {
         if (!pendingMap.has(pendingKey)) {
             pendingMap.set(pendingKey, cancel);
@@ -41,8 +42,10 @@ function removePendingRequest(config: AxiosRequestConfigNew) {
 
     if (pendingMap.has(pendingKey)) {
         const cancelToken = pendingMap.get(pendingKey);
-        cancelToken(pendingKey);
-        pendingMap.delete(pendingKey);
+        // 取消请求（message 参数是可选的）
+        cancelToken('取消的请求唯一key(method&url&params&data)：' + pendingKey); // 取消请求
+
+        pendingMap.delete(pendingKey); // 从队列中移除
     }
 }
 
