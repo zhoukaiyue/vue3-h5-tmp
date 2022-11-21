@@ -4,12 +4,13 @@
  * @Author: zhoukai
  * @Date: 2022-11-02 16:58:59
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-10 11:30:16
+ * @LastEditTime: 2022-11-21 17:35:00
 -->
 
 ## 基于 axios 二次封装的简约版请求库，该请求库默认支持一下功能：
 
--   取消重复请求
+-   请求重试 (请求错误时重新发送接口)
+-   取消重复请求 (基于 CancelToken 实现)
 -   Loading (使用 Vant Toast.loading 实现)
 
 ### 引入
