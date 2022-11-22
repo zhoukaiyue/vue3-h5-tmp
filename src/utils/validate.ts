@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-11-21 17:24:55
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-21 17:25:25
+ * @LastEditTime: 2022-11-22 11:20:01
  */
 
 /**
@@ -27,5 +27,5 @@ export const isJsonStr = function (str: string) {
  * @return {Boolean}
  */
 export function isJson(obj: object) {
-    return typeof obj == 'object' && Object.prototype.toString.call(obj).toLowerCase() == '[object object]';
+    return typeof obj === 'object' && Object.prototype.toString.call(obj).toLowerCase() === '[object object]';
 }
