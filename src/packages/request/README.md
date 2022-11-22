@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-11-02 16:58:59
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-21 17:35:00
+ * @LastEditTime: 2022-11-22 10:22:54
 -->
 
 ## 基于 axios 二次封装的简约版请求库，该请求库默认支持一下功能：
@@ -13,15 +13,13 @@
 -   取消重复请求 (基于 CancelToken 实现)
 -   Loading (使用 Vant Toast.loading 实现)
 
-### 引入
+## 创建一个请求
+
+### 新建一个 ts 文件，并引入相关 api
 
 ```ts
 import { $post } from '@/packages/request';
-```
 
-## 代码演示
-
-```ts
 // 普通用法
 export const getListDev = (params: any): Promise<any> => {
     return $post('/mock/14/demo/getList', params);
@@ -30,7 +28,7 @@ export const getListDev = (params: any): Promise<any> => {
 // 自定义配置
 export const getListDev = (params: any): Promise<any> => {
     return $post('/mock/14/demo/getList', params, {
-        enableCancelModel: false //针对该接口关闭 取消重复请求模式
+        enableCancelModel: false //针对该接口关闭"取消重复请求模式"
         retryDelay: 4000, //当前请求重试间隔设置为4秒
         retryFrequency: 2 //当前请求重试次数（重试频率）2次
     });
