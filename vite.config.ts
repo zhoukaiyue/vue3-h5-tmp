@@ -4,17 +4,17 @@
  * @Author: zhoukai
  * @Date: 2022-10-20 13:53:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 14:00:16
+ * @LastEditTime: 2022-11-23 15:54:22
  */
 import { fileURLToPath, URL } from 'node:url';
 
-import { defineConfig, loadEnv, type PluginOption } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from 'unplugin-vue-components/resolvers';
 import { visualizer } from 'rollup-plugin-visualizer';
-import htmlMinifier from 'rollup-plugin-html-minifier';
+import { createHtmlPlugin } from 'vite-plugin-html';
 
 const RegImg = /\.(png|jpe?g|gif|svg)(\?.*)?$/;
 const RegMedia = /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/;
@@ -28,19 +28,6 @@ export default defineConfig(({ command, mode }) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const env = loadEnv(mode, process.cwd(), '');
 
-    //plugins 额外配置项
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const plugin_options = [] as any;
-    if (env.VITE_APP_BUNDLE_ANALYZE === '1') {
-        plugin_options.push(
-            visualizer({
-                open: true,
-                gzipSize: true,
-                brotliSize: true
-            }) as PluginOption
-        );
-    }
-
     return {
         // 开发或生产环境服务的公共基础路径。
         base: env.VITE_APP_PUBLIC_URL,
@@ -50,7 +37,22 @@ export default defineConfig(({ command, mode }) => {
             Components({
                 resolvers: [VantResolver()]
             }),
-            ...plugin_options
+            // 对html模板做压缩处理。文档【https://www.npmjs.com/package/rollup-plugin-html-minifier】
+            createHtmlPlugin({
+                minify: true,
+                inject: {
+                    data: {
+                        title: 'vue3-h5-tmp'
+                    }
+                }
+            }),
+            // rollup打包分析插件。文档【https://www.npmjs.com/package/rollup-plugin-visualizer】
+            env.VITE_APP_BUNDLE_ANALYZE === '1' &&
+                visualizer({
+                    open: true,
+                    gzipSize: true,
+                    brotliSize: true
+                })
         ],
         resolve: {
             alias: {
@@ -76,32 +78,7 @@ export default defineConfig(({ command, mode }) => {
             assetsDir: 'assets',
             // Rollup 打包配置
             rollupOptions: {
-                plugins: [
-                    // 对html模板做压缩处理
-                    htmlMinifier({
-                        // 这些是默认值：
-                        // 要包含的全局模式或全局模式数组
-                        include: '*.html',
-                        // 要排除的全局模式或全局模式数组
-                        exclude: undefined,
-                        // 方法返回一个过滤要处理的文件的布尔值
-                        // 给定他们的名字（覆盖包含和排除参数）
-                        filter: undefined,
-                        // html-minifier 选项 。文档【https://github.com/kangax/html-minifier#options-quick-reference】
-                        options: {
-                            removeComments: true,
-                            collapseWhitespace: true,
-                            removeRedundantAttributes: true,
-                            useShortDoctype: true,
-                            removeEmptyAttributes: true,
-                            removeStyleLinkTypeAttributes: true,
-                            keepClosingSlash: true,
-                            minifyJS: true,
-                            minifyCSS: true,
-                            minifyURLs: true
-                        }
-                    })
-                ],
+                plugins: [],
                 output: {
                     entryFileNames: 'assets/js/[name]-[hash].js',
                     chunkFileNames: 'assets/js/[name]-[hash].js',
