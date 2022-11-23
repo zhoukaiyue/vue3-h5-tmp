@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-20 13:53:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-23 15:54:22
+ * @LastEditTime: 2022-11-23 16:37:46
  */
 import { fileURLToPath, URL } from 'node:url';
 
@@ -37,7 +37,7 @@ export default defineConfig(({ command, mode }) => {
             Components({
                 resolvers: [VantResolver()]
             }),
-            // 对html模板做压缩处理。文档【https://www.npmjs.com/package/rollup-plugin-html-minifier】
+            // 对html模板做压缩处理。文档【https://www.npmjs.com/package/vite-plugin-html】
             createHtmlPlugin({
                 minify: true,
                 inject: {
