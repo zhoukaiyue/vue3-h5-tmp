@@ -4,15 +4,13 @@
  * @Author: zhoukai
  * @Date: 2022-10-14 15:48:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 14:05:30
+ * @LastEditTime: 2022-12-05 16:34:59
  */
 
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 
 import App from './App.vue';
-// 导入基础布局组件
-import FrameView from '@/layout';
 // 导入router配置
 import router from './packages/router';
 // 导入pinia配置
@@ -30,11 +28,5 @@ const app = createApp(App);
 app.use(createPinia());
 // router初始化
 app.use(router);
-
-/**
- * 将基础布局组件注册为全局组件
- * 意味着在模板中你可以通过 <FrameView> 或 <frame-view> 引用。
- */
-app.component('FrameView', FrameView);
 
 app.mount('#app');

@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-20 13:53:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-23 16:37:46
+ * @LastEditTime: 2022-12-05 15:43:06
  */
 import { fileURLToPath, URL } from 'node:url';
 
@@ -35,6 +35,8 @@ export default defineConfig(({ command, mode }) => {
             vue(),
             vueJsx(),
             Components({
+                // 指定组件位置，以下导入的分别是全局基础组件以及基础布局组件
+                dirs: ['src/resources/components', 'src/layout'], //自动导入自己的组件
                 resolvers: [VantResolver()]
             }),
             // 对html模板做压缩处理。文档【https://www.npmjs.com/package/vite-plugin-html】
