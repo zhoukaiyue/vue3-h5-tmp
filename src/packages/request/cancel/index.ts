@@ -14,7 +14,7 @@ import axios from 'axios';
 import type { AxiosRequestConfigNew } from '../type';
 
 // 根据当前请求的信息，生成请求 Key
-import { generateReqKey } from '../utils/generateReqKey';
+import { generateReqKey } from './utils/generateReqKey';
 
 // Map对象保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。
 const pendingMap = new Map();

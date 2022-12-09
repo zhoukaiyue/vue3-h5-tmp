@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-11-09 10:54:10
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-21 17:27:20
+ * @LastEditTime: 2022-12-09 14:54:50
  */
 
 // 工具函数之判断字符串是否是json字符串
@@ -13,6 +13,8 @@ import { isJsonStr } from '@/utils/validate';
 import { sleep } from '@/utils/sleep';
 // axios 实例类型定义
 import type { AxiosStatic } from 'axios';
+// http错误状态码处理
+import { httpErrorStatusHandle } from '../httpErrorStatusHandle';
 
 /**
  * @param {失败信息} err
@@ -33,11 +35,18 @@ export async function againRequest(
     const config = err.config;
 
     // config.enableRetryModel 具体接口配置的是否开启请求重试模式
-    if (!config || config.enableRetryModel === false) return Promise.reject(err);
+    if (!config || config.enableRetryModel === false) {
+        httpErrorStatusHandle(err, axios);
+        return Promise.reject(err);
+    }
 
     // 重发次数
     const retry = (config && config.retryFrequency) || retryConfig.frequency;
-    if (!retry) return Promise.reject(err);
+    if (!retry) {
+        console.log(`重试次数为0`);
+        httpErrorStatusHandle(err, axios);
+        return Promise.reject(err);
+    }
 
     // 设置用于记录重试计数的变量 默认为0
     config.__retryCount = config.__retryCount || 0;
@@ -45,6 +54,7 @@ export async function againRequest(
     // 判断是否超过了重试次数
     if (config.__retryCount >= retry) {
         console.log(`重试次数已用完`);
+        httpErrorStatusHandle(err, axios);
         return Promise.reject(err);
     }
     // 重试次数

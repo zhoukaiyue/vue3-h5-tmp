@@ -4,9 +4,9 @@
  * @Author: zhoukai
  * @Date: 2022-11-09 14:21:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-21 17:27:37
+ * @LastEditTime: 2022-12-09 10:46:50
  */
-import type { AxiosRequestConfigNew } from '../type';
+import type { AxiosRequestConfigNew } from '../../type';
 // 工具函数
 import { isJson, isJsonStr } from '@/utils/validate';
 

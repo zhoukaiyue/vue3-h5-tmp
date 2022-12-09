@@ -4,12 +4,14 @@
  * @Author: zhoukai
  * @Date: 2022-10-18 16:28:31
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-10 13:55:42
+ * @LastEditTime: 2022-12-09 15:15:33
 -->
 
 <template>
     <frame-view class="dev-request">
-        <h4>项目中对axios进行了终极封装，包含取消重复请求、请求错误重试、loading基本功能与交互。</h4>
+        <h4>
+            项目中对axios进行了终极封装，包含取消重复请求、请求错误重试、loading、http错误状态码处理等基本功能与交互。
+        </h4>
         <p>axios库的使用规范：</p>
         <p>请阅读 src/config/apis README.md 描述文件</p>
     </frame-view>

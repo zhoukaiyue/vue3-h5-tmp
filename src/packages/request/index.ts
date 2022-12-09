@@ -1,10 +1,10 @@
 /*
- * @Descripttion:axios终极封装，包含取消重复请求、请求错误重试、loading基本功能与交互
+ * @Descripttion:axios终极封装，包含取消重复请求、请求错误重试、loading、http错误状态码处理等基本功能与交互
  * @version:
  * @Author: zhoukai
  * @Date: 2022-08-08 10:53:58
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-10 11:27:21
+ * @LastEditTime: 2022-12-09 14:58:05
  */
 
 // axios 请求库
@@ -19,6 +19,8 @@ import laoding from './loading';
 import { addPendingMap, removePendingRequest } from './cancel';
 // 请求重发
 import { againRequest } from './retry';
+// http错误状态码处理
+import { httpErrorStatusHandle } from './httpErrorStatusHandle';
 
 //  将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。
 axios.defaults.baseURL = import.meta.env.VITE_APP_AXIOS_BASEURL;
@@ -63,6 +65,15 @@ const retryConfig = {
     frequency: 3, //重试次数（重试频率）
     delay: 3000 //延迟时间
 };
+
+/**
+ * 是否开启接口错误信息展示，默认为true
+ * 开启该功能则意味着请求错误时，会提示错误信息
+ *
+ * 须知：
+ * 1、该属性是全局的，如果你想在某个请求上面禁止使用该功能，则需要在【指定配置】②中设置 enableErrorMessage:false。
+ */
+const enableErrorMessage = true;
 
 /** 拦截器之请求拦截器 */
 axios.interceptors.request.use(
@@ -116,7 +127,10 @@ axios.interceptors.response.use(
             return againRequest(error, axios, retryConfig);
         }
 
-        return Promise.reject(error);
+        // 处理错误状态码
+        enableErrorMessage && httpErrorStatusHandle(error, axios);
+
+        return Promise.reject(error); // 错误继续返回给到具体页面
     }
 );
 
