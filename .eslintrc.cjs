@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-25 15:52:00
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-12-05 10:13:59
+ * @LastEditTime: 2022-12-19 15:08:44
  */
 
 /* eslint-env node */
@@ -12,6 +12,11 @@ require('@rushstack/eslint-patch/modern-module-resolution');
 
 module.exports = {
     root: true,
+    env: {
+        browser: true,
+        amd: true,
+        node: true
+    },
     extends: [
         'plugin:vue/vue3-essential',
         'eslint:recommended',

@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-14 15:48:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-12-05 16:34:59
+ * @LastEditTime: 2022-12-19 17:07:53
  */
 
 import { createApp } from 'vue';
@@ -16,6 +16,7 @@ import router from './packages/router';
 // 导入pinia配置
 import './packages/store';
 // 全局基础样式
+import 'tailwindcss/tailwind.css';
 import './assets/css/index.scss';
 // 导入全局插件
 import '@/resources/plugin';

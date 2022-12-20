@@ -4,17 +4,17 @@
  * @Author: zhoukai
  * @Date: 2022-10-18 14:48:41
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 14:13:41
+ * @LastEditTime: 2022-12-20 12:37:07
 -->
 
 <template>
-    <div :class="[props.showTabbar ? 'h-tabbar' : '', 'frame-view']">
+    <div :class="[props.showTabbar ? 'h-tabbar' : '', 'frame-view w-full h-full']">
         <!-- 内容 -->
-        <div class="frame-view-content">
+        <div class="frame-view-content w-full h-full">
             <!-- 默认插槽 -->
             <slot name="default"></slot>
             <!-- tabbar -->
-            <tabbar v-if="props.showTabbar" class="layout-tabbar"></tabbar>
+            <tabbar v-if="props.showTabbar" class="layout-tabbar w-screen h-[100px] text-[26px]"></tabbar>
         </div>
     </div>
 </template>
@@ -44,11 +44,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    width: 100%;
-    height: 100%;
     &-content {
-        width: 100%;
-        height: 100%;
         overflow-y: scroll;
         &::-webkit-scrollbar {
             display: none;
@@ -60,9 +56,6 @@ export default {
         bottom: 0;
         left: 0;
         background-color: #fff;
-        width: 100vw;
-        height: 100px;
-        font-size: 26px;
     }
     &.h-tabbar {
         .frame-view-content {
