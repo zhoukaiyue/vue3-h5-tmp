@@ -13,5 +13,6 @@
     "vetur.format.enable": false,
     "vetur.validation.template": false,
     "vetur.validation.script": false,
-    "vetur.validation.style": false
+    "vetur.validation.style": false,
+    "scss.lint.unknownAtRules": "ignore"
 }

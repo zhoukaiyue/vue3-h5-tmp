@@ -4,13 +4,14 @@
  * @Author: zhoukai
  * @Date: 2022-10-20 13:53:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 14:04:06
+ * @LastEditTime: 2022-12-19 14:52:41
  */
 
 
 // TODO:如果设计稿的尺寸不是 375，而是 750 或其他大小，可以将 rootValue 配置调整为:
 module.exports = {
     plugins: {
+        tailwindcss: {},
         autoprefixer: {
             overrideBrowserslist: ['Android 4.1', 'iOS 7.1', 'Chrome > 31', 'ff > 31', 'ie >= 8']
         },

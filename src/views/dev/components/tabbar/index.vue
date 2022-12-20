@@ -8,7 +8,7 @@
 -->
 
 <template>
-    <frame-view class="dev-tabbar" v-bind:showTabbar="true"> tabbar 底部标签栏 </frame-view>
+    <frame-view class="dev-tabbar" v-bind:showTabbar="true">tabbar 底部标签栏</frame-view>
 </template>
 
 <script lang="ts">
