@@ -19,15 +19,13 @@ node_modules
 /cypress/screenshots/
 
 # Editor directories and files
-
-!.vscode/extensions.json
 .idea
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
+.git
 
 # visualizer产物
 stats.html
