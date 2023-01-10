@@ -4,15 +4,15 @@
  * @Author: zhoukai
  * @Date: 2022-10-19 14:09:12
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-12-20 12:23:18
+ * @LastEditTime: 2023-01-10 10:19:22
 -->
 
 <template>
     <frame-view class="dev text-[30px] bg-[#fff]">
         <div>
             <van-tag>vue3-h5-tmp</van-tag>
-            &nbsp; 是基于&nbsp; create-vue（它是 Vue 官方的项目脚手架工具）。&nbsp; 创建的基于 Vite 的项目。使用&nbsp;
-            vant3+&nbsp; 作为 UI 组件库的一个移动端脚手架，开箱即用。
+            是基于 Vue3.x setup + TypeScript + Vite + Pinia + Vant3 + sass + tailwindcss + Rem 布局适配 +
+            axios（封装）等流行技术栈构建移动端模板脚手架，开箱即用。
         </div>
         <div class="pt-[12px] pb-[12px]">下面是一些基础组件的使用demo，可以点进去试一试</div>
         <div class="mt-[20px]">
