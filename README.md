@@ -1,12 +1,13 @@
 # 简介
 
-vue3-h5-tmp 基于 Vue3.x setup + TypeScript + Vite + Pinia + Vant3 + sass + tailwindcss + Rem 布局适配 + axios（封装）等流行技术栈构建移动端模板脚手架，开箱即用。
+vue3-h5-tmp 基于 Vue3.x setup + TypeScript + Vite + Pinia + Vant3 + sass + tailwindcss + Rem 布局适配 + axios（封装）+ Eslint + Prettier 等流行技术栈构建移动端模板脚手架，开箱即用。
 
 # 技术规范
 
 ## 环境要求
 
--   node 14+
+-   node >14
+-   pnpm >=7
 -   支持现代浏览器以及 Chrome >= 51、iOS >= 10.0（与 Vue 3 一致）。
 
 ## 编辑器以及对应扩展
