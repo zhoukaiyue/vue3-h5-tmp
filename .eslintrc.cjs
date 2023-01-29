@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-25 15:52:00
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-12-19 15:08:44
+ * @LastEditTime: 2023-01-29 17:19:21
  */
 
 /* eslint-env node */
@@ -31,11 +31,6 @@ module.exports = {
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'prettier/prettier': ['error', { singleQuote: true, endOfLine: 'auto' }],
         'vue/component-definition-name-casing': 'off', // 对组件命名不做校验，你可以采用驼峰命名或者烤肉串大小写。
-        'vue/multi-word-component-names': [
-            'error',
-            {
-                ignores: ['index'] //需要忽略的组件名
-            }
-        ]
+        'vue/multi-word-component-names': 'off' //关闭eslint检查文件名是否为驼峰命名
     }
 };
