@@ -29,3 +29,5 @@ coverage
 
 # visualizer产物
 stats.html
+
+components.d.ts
