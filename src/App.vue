@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-20 11:14:19
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 14:05:51
+ * @LastEditTime: 2023-01-30 10:12:31
 -->
 
 <template>
@@ -21,8 +21,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-
 export default defineComponent({
     data() {
         return {};

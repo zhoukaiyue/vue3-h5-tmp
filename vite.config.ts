@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-20 13:53:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-01-30 09:46:49
+ * @LastEditTime: 2023-01-30 10:37:44
  */
 import { fileURLToPath, URL } from 'node:url';
 
@@ -15,6 +15,8 @@ import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from 'unplugin-vue-components/resolvers';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { createHtmlPlugin } from 'vite-plugin-html';
+// 自动导入 API vite插件。文档地址：https://github.com/antfu/unplugin-auto-import
+import AutoImport from 'unplugin-auto-import/vite';
 
 const RegImg = /\.(png|jpe?g|gif|svg)(\?.*)?$/;
 const RegMedia = /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/;
@@ -40,6 +42,35 @@ export default defineConfig(({ command, mode }) => {
                 // 以下导入的分别是全局基础组件以及基础布局组件，可在文件中直接使用而不需要再次import
                 dirs: ['src/resources/components', 'src/layout'],
                 resolvers: [VantResolver()]
+            }),
+            // 自动导入 API vite插件
+            // 以下导入的分别是vue（框架）以及官方生态库 vue-router、pinia 的相关api
+            // 如果你需要用到相关库的api,可在文件中直接使用而不需要再次import
+            // 注：有可能部分api未被自动导入，如果你直接使用时报错，请手动inport，如 vue-router 库的 createRouter, createWebHistory api。
+            AutoImport({
+                // targets to transform
+                include: [
+                    /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+                    /\.vue$/,
+                    /\.vue\?vue/ // .vue
+                ],
+                imports: [
+                    // presets
+                    'vue',
+                    'vue-router',
+                    'pinia'
+                ],
+                // Filepath to generate corresponding .d.ts file.
+                // Defaults to './auto-imports.d.ts' when `typescript` is installed locally.
+                // Set `false` to disable.
+                dts: 'src/auto-imports.d.ts',
+                // Generate corresponding .eslintrc-auto-import.json file.
+                // eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
+                eslintrc: {
+                    enabled: true, // Default `false`
+                    filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+                    globalsPropValue: true // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+                }
             }),
             // 对html模板做压缩处理。文档【https://www.npmjs.com/package/vite-plugin-html】
             createHtmlPlugin({

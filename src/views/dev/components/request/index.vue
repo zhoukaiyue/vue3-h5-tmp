@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-18 16:28:31
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-12-09 15:15:33
+ * @LastEditTime: 2023-01-30 10:06:34
 -->
 
 <template>
@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts">
-import { reactive, toRefs, onBeforeMount, onMounted } from 'vue';
 import { getListDev } from '@/config/apis/dev';
 // 导入验证器
 import type { getListDevValidator } from '@/config/apis/validation';

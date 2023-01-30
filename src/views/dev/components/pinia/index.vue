@@ -4,23 +4,22 @@
  * @Author: zhoukai
  * @Date: 2022-10-17 16:16:39
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 14:07:33
+ * @LastEditTime: 2023-01-30 10:19:47
 -->
 
 <template>
     <frame-view class="dev-pinia">
         <input :value="count" :readOnly="true" />
         <br />
-        <button aria-label="Increment value" @click="add">增加</button>
-        <button aria-label="Decrement value" @click="reduce">减少</button>
-        <button aria-label="Decrement value" @click="decrease">步进</button>
-        <button aria-label="Decrement value" @click="resetCount">重置</button>
+        <van-button aria-label="Increment value" @click="add">增加</van-button>
+        <van-button aria-label="Decrement value" @click="reduce">减少</van-button>
+        <van-button aria-label="Decrement value" @click="decrease">步进</van-button>
+        <van-button aria-label="Decrement value" @click="resetCount">重置</van-button>
     </frame-view>
 </template>
 
 <script setup lang="ts">
 import { devStore } from '@/packages/store';
-import { storeToRefs } from 'pinia';
 
 // 使用store
 const testStore = devStore();

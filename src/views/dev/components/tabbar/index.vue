@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-19 09:48:29
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 14:07:45
+ * @LastEditTime: 2023-01-30 10:06:47
 -->
 
 <template>
@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts">
-import { reactive, toRefs, onBeforeMount, onMounted } from 'vue';
 export default {
     name: 'dev-tabbar',
     props: [],

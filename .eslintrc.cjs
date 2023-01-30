@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-08-25 15:52:00
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-01-29 17:19:21
+ * @LastEditTime: 2023-01-30 10:00:34
  */
 
 /* eslint-env node */
@@ -21,7 +21,8 @@ module.exports = {
         'plugin:vue/vue3-essential',
         'eslint:recommended',
         '@vue/eslint-config-typescript/recommended',
-        '@vue/eslint-config-prettier'
+        '@vue/eslint-config-prettier',
+        './.eslintrc-auto-import.json'
     ],
     parserOptions: {
         ecmaVersion: 'latest'
