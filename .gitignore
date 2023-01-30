@@ -30,6 +30,6 @@ node_modules
 # visualizer产物
 stats.html
 # 组件内容生成的类型声明,建议把他加入 gitignore 中，以免出现频繁更改导致 git 监测到项目内容一直变动的问题
-compnents.d.ts
+components.d.ts
 
 /src/auto-imports.d.ts
