@@ -32,4 +32,4 @@ stats.html
 # 组件内容生成的类型声明
 components.d.ts
 # 自动导入相关api内容生成的类型声明
-auto-imports.d.ts
+/src/auto-imports.d.ts
