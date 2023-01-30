@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-19 14:09:12
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-01-18 14:54:00
+ * @LastEditTime: 2023-01-30 10:03:47
 -->
 
 <template>
@@ -25,9 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-
 // 定义 goPage 函数入参类型声明
 export interface Gptype {
     path: string;

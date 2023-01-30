@@ -4,11 +4,8 @@
  * @Author: zhoukai
  * @Date: 2022-10-14 15:48:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-12-19 17:07:53
+ * @LastEditTime: 2023-01-30 10:17:11
  */
-
-import { createApp } from 'vue';
-import { createPinia } from 'pinia';
 
 import App from './App.vue';
 // 导入router配置

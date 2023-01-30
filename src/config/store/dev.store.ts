@@ -4,9 +4,8 @@
  * @Author: zhoukai
  * @Date: 2022-10-18 12:32:36
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 14:13:59
+ * @LastEditTime: 2023-01-30 10:17:18
  */
-import { defineStore } from 'pinia';
 
 // 第一个参数是应用程序中 store 的唯一 id
 export const devStore = defineStore('devStore', {

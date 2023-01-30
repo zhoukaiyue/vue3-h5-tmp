@@ -29,5 +29,7 @@ coverage
 
 # visualizer产物
 stats.html
-
+# 组件内容生成的类型声明
 components.d.ts
+# 自动导入相关api内容生成的类型声明
+/src/auto-imports.d.ts

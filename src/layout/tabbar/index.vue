@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-19 09:50:04
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 14:13:18
+ * @LastEditTime: 2023-01-30 10:07:27
 -->
 <!-- <script setup lang='ts'></script> -->
 <template>
@@ -16,8 +16,6 @@
 </template>
 
 <script lang="ts">
-import { reactive, toRefs, onBeforeMount, onMounted } from 'vue';
-import { Tabbar, TabbarItem } from 'vant';
 export default {
     name: 'frame-view-tabbar',
     props: [],
@@ -51,10 +49,6 @@ export default {
         return {
             ...refState
         };
-    },
-    components: {
-        [Tabbar.name]: Tabbar,
-        [TabbarItem.name]: TabbarItem
     }
 };
 </script>
