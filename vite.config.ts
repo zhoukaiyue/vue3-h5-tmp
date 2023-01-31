@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-20 13:53:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-01-30 10:37:44
+ * @LastEditTime: 2023-01-31 16:27:37
  */
 import { fileURLToPath, URL } from 'node:url';
 
@@ -140,8 +140,7 @@ export default defineConfig(({ command, mode }) => {
                     manualChunks: {
                         vue: ['vue', 'vue-router', 'pinia'],
                         ui: ['vant', 'tailwindcss'],
-                        vconsole: ['vconsole'],
-                        tool: ['lodash', 'qs'],
+                        tool: ['lodash', 'qs', 'vconsole'],
                         axios: ['axios']
                     }
                 }
