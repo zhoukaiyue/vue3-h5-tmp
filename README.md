@@ -211,7 +211,12 @@ vue3-h5-tmp                             //
 │  │  │  ├─ errpage.ts                  //
 │  │  │  └─ index.ts                    //
 │  │  └─ store                          // 状态商店（所有全局状态管理相关）
-│  │     └─ dev.store.ts                //
+│  │     ├─ dev                         // store模块
+│  │     │  ├─ index.ts                 // store核心代码
+│  │     │  ├─ README.md                // store 模块使用说明
+│  │     │  └─ validation               // ts 校验器
+│  │     │     └─ index.ts              //
+│  │     └─ README.md                   // store模块创建说明
 │  ├─ layout                            // 基础布局组件
 │  │  ├─ frame-view                     //
 │  │  │  └─ index.vue                   //
@@ -238,8 +243,6 @@ vue3-h5-tmp                             //
 │  │  ├─ router                         // vue-router 核心封装
 │  │  │  ├─ index.ts                    //
 │  │  │  └─ routes.ts                   //
-│  │  ├─ store                          // pinia集中导出
-│  │  │  └─ index.ts                    //
 │  │  └─ vConsole                       // vConsole配置
 │  │     └─ index.ts                    //
 │  ├─ resources                         // 全局组件、全局自定义插件
