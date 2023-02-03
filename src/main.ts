@@ -4,14 +4,13 @@
  * @Author: zhoukai
  * @Date: 2022-10-14 15:48:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-01-30 10:17:11
+ * @LastEditTime: 2023-02-03 13:59:21
  */
 
 import App from './App.vue';
 // 导入router配置
 import router from './packages/router';
-// 导入pinia配置
-import './packages/store';
+
 // 全局基础样式
 import 'tailwindcss/tailwind.css';
 import './assets/css/index.scss';
@@ -22,7 +21,7 @@ import '@/packages/vConsole';
 
 const app = createApp(App);
 
-// 状态机初始化
+//创建一个 pinia 实例(根 store)并将其传递给应用
 app.use(createPinia());
 // router初始化
 app.use(router);
