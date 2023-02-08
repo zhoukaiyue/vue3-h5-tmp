@@ -51,6 +51,7 @@ pnpm lint:prettier
 -   🚀 不要在钩子函数中写大量业务代码；
 -   🚀 异步使用 aysnc await 语法；
 -   🚀 不是常用的方法不要全局挂载；
+-   🚀 文件命名如果是多单词则采用驼峰命名或者烤肉串大小写，尽量简洁明了；
 
 ### 基础组件名。 【注：src/components 目录。】
 
@@ -109,7 +110,7 @@ src
 
 ### 状态切片文件创建与命名。 【注：src/config/store 目录。】
 
-为了方便维护与开发，建议以当前对应模块或者功能命名文件夹，尽量简洁明了。
+为了方便维护与开发，建议以当前对应模块或者功能命名文件夹，采用驼峰命名或者烤肉串大小写，尽量简洁明了。
 
 ```
 例子：
@@ -254,7 +255,8 @@ vue3-h5-tmp                             //
 │  ├─ types                             //
 │  ├─ utils                             // 工具库
 │  │  ├─ getCurrentUrlAssignKey.ts      //
-│  │  ├─ index.ts                       //
+│  │  ├─ handle-local.ts                //
+│  │  ├─ handle-session.ts              //
 │  │  ├─ sleep.ts                       //
 │  │  └─ validate.ts                    //
 │  ├─ views                             // 视图
