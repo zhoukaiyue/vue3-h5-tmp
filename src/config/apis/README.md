@@ -4,13 +4,13 @@
  * @Author: zhoukai
  * @Date: 2022-10-18 17:41:55
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-11-02 17:35:48
+ * @LastEditTime: 2023-03-27 17:00:58
 -->
 
 ## 接口创建规范
 
-🚀 项目中使用到的接口都应当在该文件夹下，同一模块或者同一功能用到的接口建议独立成一个.ts 文件。
-🚀 接口验证器同一放到该文件下的 validation 中，每个接口的验证器尽量独立成一个.ts 文件。
+🚀 项目中使用到的接口都应当在该文件夹下，根据功能或者模块名称创建接口切片文件。
+🚀 接口验证器统一放到该切片下的 validation/modeule 中，每个接口的验证器尽量独立成一个.ts 文件。
 🚀 每一个接口验证器应该是一个空间，空间名称以 接口名称+Validator 命名，如 接口名称 getListDev，则空间名称应该是 getListDevValidator，这样就可以尽量减少变量命名重复。
 🚀 接口验证器最终需要在文件下的 validation 中的 index.ts 文件中导出。
 
@@ -23,7 +23,7 @@
 // 导入功能接口函数
 import { getListDev } from '@/config/apis/dev';
 // 导入接口验证器
-import type { getListDevValidator } from '@/config/apis/validation';
+import type { getListDevValidator } from '@/config/apis/dev/validation';
 export default {
     name: 'dev-request',
     props: [],

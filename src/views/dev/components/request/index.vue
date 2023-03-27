@@ -20,7 +20,7 @@
 <script lang="ts">
 import { getListDev } from '@/config/apis/dev';
 // 导入验证器
-import type { getListDevValidator } from '@/config/apis/validation';
+import type { getListDevValidator } from '@/config/apis/dev/validation';
 export default {
     name: 'dev-request',
     props: [],
