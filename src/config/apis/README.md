@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-18 17:41:55
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-03-27 17:00:58
+ * @LastEditTime: 2023-03-27 17:47:49
 -->
 
 ## 接口创建规范
@@ -62,9 +62,11 @@ export default {
 
 ```
 ├─ apis
-│  ├─ dev.ts                                     //模块或同一功能依赖的相关接口
-│  ├─ README.md                                  //描述文件
-│  └─ validation                                 //接口验证器
-│     ├─ getListDev.ts                           //getListDev接口的验证器
-│     └─ index.ts                                //验证器出口文件
+│  ├─ dev                           // 接口切片
+│  │  ├─ index.ts                   // 接口创建文件
+│  │  │  └─ validation              // 接口验证器相关
+│  │  │     ├─ index.ts             // 接口验证器统一导出文件
+│  │  │     └─ module               // 接口验证器切片
+│  │  │        └─ getListDev.ts     // 接口验证器核心文件
+│  └─ README.md                     // 接口创建说明文档
 ```
