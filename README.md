@@ -201,12 +201,14 @@ vue3-h5-tmp                             //
 │  │  │  └─ logo.svg                    //
 │  │  └─ js                             // 全局静态js放置目录
 │  ├─ config                            // 业务配置目录
-│  │  ├─ apis                           // 所有接口相关
-│  │  │  ├─ dev.ts                      //
-│  │  │  ├─ README.md                   // 业务接口创建规范
-│  │  │  └─ validation                  // 相关接口ts验证器
-│  │  │     ├─ getListDev.ts            //
-│  │  │     └─ index.ts                 //
+│  │  ├─ apis                           // 所以接口相关
+│  │  │  ├─ dev                         // 接口切片
+│  │  │  │  ├─ index.ts                 // 接口创建文件
+│  │  │  │  └─ validation               // 接口验证器相关
+│  │  │  │     ├─ index.ts              // 接口验证器统一导出文件
+│  │  │  │     └─ module                // 接口验证器切片
+│  │  │  │        └─ getListDev.ts      // 接口验证器核心文件
+│  │  │  └─ README.md                   // 接口创建说明文档
 │  │  ├─ router                         // 所有路由相关
 │  │  │  ├─ dev.ts                      //
 │  │  │  ├─ errpage.ts                  //
