@@ -1,6 +1,6 @@
 # 简介
 
-vue3-h5-tmp 基于 Vue3.x setup + TypeScript + Vite + Pinia + Vant3 + sass + tailwindcss + Rem 布局适配 + axios（封装）+ Eslint + Prettier 等流行技术栈构建移动端模板脚手架，开箱即用。
+vue3-h5-tmp 基于 Vue3.x setup + TypeScript + Vite + Pinia + Vant3 + sass + tailwindcss + Rem 布局适配 + axios（封装）+ Eslint + Prettier + dayjs 等流行技术栈构建移动端模板脚手架，开箱即用。
 
 # 技术规范
 

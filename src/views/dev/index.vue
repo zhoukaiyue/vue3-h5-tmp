@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-19 14:09:12
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-01-30 10:03:47
+ * @LastEditTime: 2023-03-28 19:24:32
 -->
 
 <template>
@@ -12,7 +12,7 @@
         <div>
             <van-tag>vue3-h5-tmp</van-tag>
             基于 Vue3.x setup + TypeScript + Vite + Pinia + Vant3 + sass + tailwindcss + Rem 布局适配 + axios（封装）+
-            Eslint + Prettier 等流行技术栈构建移动端模板脚手架，开箱即用。
+            Eslint + Prettier + dayjs 等流行技术栈构建移动端模板脚手架，开箱即用。
         </div>
         <div class="pt-[12px] pb-[12px]">下面是一些基础组件的使用demo，可以点进去试一试</div>
         <div class="mt-[20px]">
