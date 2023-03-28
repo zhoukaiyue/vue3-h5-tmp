@@ -1,10 +1,10 @@
 /*
- * @Descripttion:
+ * @Descripttion: dayjs 二次封装api
  * @version:
  * @Author: zhoukai
  * @Date: 2023-03-28 19:13:45
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-03-28 19:23:02
+ * @LastEditTime: 2023-03-28 19:27:27
  */
 import dayjs, { Dayjs } from 'dayjs';
 
