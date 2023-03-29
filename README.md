@@ -1,6 +1,6 @@
 # 简介
 
-vue3-h5-tmp 基于 Vue3.x setup + TypeScript + Vite + Pinia + Vant3 + sass + tailwindcss + Rem 布局适配 + axios（封装）+ Eslint + Prettier 等流行技术栈构建移动端模板脚手架，开箱即用。
+vue3-h5-tmp 基于 Vue3.x setup + TypeScript + Vite + Pinia + Vant3 + sass + tailwindcss + Rem 布局适配 + axios（封装）+ Eslint + Prettier + dayjs 等流行技术栈构建移动端模板脚手架，开箱即用。
 
 # 技术规范
 
@@ -164,42 +164,42 @@ src
 ## 项目目录说明
 
 ```
-vue3-h5-tmp                             //
+vue3-h5-tmp
 ├─ .env.development                     // 开发环境配置文件
 ├─ .env.production                      // 生产环境配置文件
 ├─ .env.test                            // 测试、灰度(预发布|预上线) 模式
 ├─ .eslintignore                        // eslint白名单
+├─ .eslintrc-auto-import.json           //
 ├─ .eslintrc.cjs                        // eslint配置文件
-├─ .npmrc                               //
+├─ .npmrc                               // npm配置文件（项目级）
 ├─ .postcssrc.js                        // postcss配置文件
 ├─ .prettierrc.js                       // prettier配置文件
-├─ .vscode                              // 项目级vscode配置文件
+├─ .vscode                              // 覆盖默认vscode配置（项目级）
 │  ├─ extensions.json                   //
 │  └─ settings.json                     //
-├─ components.d.ts                      //
-├─ env.d.ts                             //
-├─ index.html                           // 入口文件
-├─ package.json                         // 项目描述文件
+├─ env.d.ts                             // 环境类型声明文件
+├─ index.html                           // templat模板
+├─ package.json                         // 项目自述文件
 ├─ pnpm-lock.yaml                       // pnpm自锁文件
-├─ public                               // 静态资源
-│  └─ static                            //
+├─ public                               // 公共资源文件（不会hash处理）
+│  └─ static                            // 静态资源目录
 │     ├─ css                            //
-│     ├─ img                            //
+│     ├─ img                            // 静态图片
 │     │  ├─ favicon.ico                 //
 │     │  └─ loading@2x.gif              //
 │     └─ js                             //
-├─ README.md                            // 项目自述文件
-├─ src                                  //
-│  ├─ App.vue                           //
-│  ├─ assets                            // 静态资源 hash处理
-│  │  ├─ css                            // 全局css放置目录
-│  │  │  └─ index.scss                  //
-│  │  ├─ img                            // 所有img放置目录
+├─ README.md                            // 项目使用说明文档
+├─ src                                  // 业务层
+│  ├─ App.vue                           // 顶级router-view
+│  ├─ assets                            // 静态资源（hash处理）
+│  │  ├─ css                            // css
+│  │  │  └─ index.scss                  // 全局基础css
+│  │  ├─ img                            // 图片
 │  │  │  ├─ base                        //
 │  │  │  │  ├─ empty.png                //
 │  │  │  │  └─ loading@2x.gif           //
 │  │  │  └─ logo.svg                    //
-│  │  └─ js                             // 全局静态js放置目录
+│  │  └─ js                             // js
 │  ├─ config                            // 业务配置目录
 │  │  ├─ apis                           // 所以接口相关
 │  │  │  ├─ dev                         // 接口切片
@@ -220,50 +220,52 @@ vue3-h5-tmp                             //
 │  │     │  └─ validation               // ts 校验器
 │  │     │     └─ index.ts              //
 │  │     └─ README.md                   // store模块创建说明
-│  ├─ layout                            // 基础布局组件
+│  ├─ layout                            // 基础布局相关
 │  │  ├─ frame-view                     //
 │  │  │  └─ index.vue                   //
-│  │  ├─ index.ts                       //
+│  │  ├─ index.ts                       // 基础布局导出文件
 │  │  └─ tabbar                         //
 │  │     └─ index.vue                   //
-│  ├─ main.ts                           // 入口js
+│  ├─ main.ts                           // 入口js文件
 │  ├─ packages                          // 依赖的第三方包或插件
 │  │  ├─ request                        // axios请求库封装
-│  │  │  ├─ cancel                      //
+│  │  │  ├─ cancel                      // 请求取消
 │  │  │  │  ├─ index.ts                 //
 │  │  │  │  └─ utils                    //
 │  │  │  │     └─ generateReqKey.ts     //
-│  │  │  ├─ httpErrorStatusHandle       //
+│  │  │  ├─ httpErrorStatusHandle       // http错误处理
 │  │  │  │  └─ index.ts                 //
-│  │  │  ├─ index.ts                    //
-│  │  │  ├─ loading                     //
+│  │  │  ├─ index.ts                    // 请求库导出文件
+│  │  │  ├─ loading                     // 请求库loading
 │  │  │  │  └─ index.ts                 //
-│  │  │  ├─ README.md                   //
-│  │  │  ├─ retry                       //
+│  │  │  ├─ README.md                   // 请求库使用说明文档
+│  │  │  ├─ retry                       // 请求重试
 │  │  │  │  └─ index.ts                 //
-│  │  │  └─ type                        //
+│  │  │  └─ type                        // 请求库类型补充
 │  │  │     └─ index.ts                 //
-│  │  ├─ router                         // vue-router 核心封装
+│  │  ├─ router                         // vue-router封装
 │  │  │  ├─ index.ts                    //
 │  │  │  └─ routes.ts                   //
 │  │  └─ vConsole                       // vConsole配置
 │  │     └─ index.ts                    //
-│  ├─ resources                         // 全局组件、全局自定义插件
-│  │  ├─ components                     // 全局组件
-│  │  └─ plugin                         // 全局自定义插件
-│  │     ├─ index.js                    //
-│  │     └─ vant                        //
+│  ├─ resources                         // 全局基础组件、全局插件、全局自定义指令配置
+│  │  ├─ components                     // 全局基础组件
+│  │  └─ plugin                         // 全局插件
+│  │     ├─ index.js                    // 全局插件导出目录
+│  │     └─ vant                        // 全局插件切片-vant
 │  │        └─ index.js                 //
-│  ├─ types                             //
-│  ├─ utils                             // 工具库
-│  │  ├─ getCurrentUrlAssignKey.ts      //
-│  │  ├─ handle-local.ts                //
-│  │  ├─ handle-session.ts              //
-│  │  ├─ sleep.ts                       //
-│  │  └─ validate.ts                    //
-│  ├─ views                             // 视图
+│  ├─ types                             // 全局类型声明文件配置
+│  ├─ utils                             // 工具类
+│  │  ├─ dayjs.ts                       // dayjs二次封装
+│  │  ├─ getCurrentUrlAssignKey.ts      // 获取 当前url 指定参数的值
+│  │  ├─ handle-local.ts                // 操作local
+│  │  ├─ handle-session.ts              // 操作session
+│  │  ├─ regex-utils.ts                 // 正则工具函数
+│  │  ├─ sleep.ts                       // 睡眠函数
+│  │  └─ validate.ts                    // 校验器函数
+│  ├─ views                             // 视图层
 │  │  ├─ components                     // 业务组件
-│  │  ├─ dev                            //
+│  │  ├─ dev                            // 开发者中心相关视图
 │  │  │  ├─ components                  //
 │  │  │  │  ├─ layOut                   //
 │  │  │  │  │  └─ index.vue             //
@@ -277,14 +279,14 @@ vue3-h5-tmp                             //
 │  │  │  │  └─ tabbar                   //
 │  │  │  │     └─ index.vue             //
 │  │  │  └─ index.vue                   //
-│  │  ├─ errPage                        //
+│  │  ├─ errPage                        // 全局错误页
 │  │  │  ├─ err404                      //
 │  │  │  │  └─ index.vue                //
 │  │  │  └─ err500                      //
-│  │  └─ index                          //
+│  │  └─ index                          // 首页
 │  │     └─ index.vue                   //
-│  └─ vue.d.ts                          //
-├─ tailwind.config.js                   // tailwindcss配置文件
+│  └─ vue.d.ts                          // .vue文件的类型说明文件
+├─ tailwind.config.js                   // tailwind配置文件
 ├─ tsconfig.config.json                 //
 ├─ tsconfig.json                        //
 └─ vite.config.ts                       // vite配置文件
