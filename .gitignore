@@ -33,3 +33,6 @@ stats.html
 components.d.ts
 
 /src/auto-imports.d.ts
+
+# 批量任务执行时的日志产物
+error.log
