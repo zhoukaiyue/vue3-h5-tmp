@@ -21,6 +21,8 @@ vue3-h5-tmp 基于 Vue3.x setup + TypeScript + Vite + Pinia + Vant3 + sass + tai
 ## 快速开发
 
 ```
+#通过 npm 安装 pnpm (如果本地已安装pnpm,请忽略)
+npm install -g pnpm
 #安装项目依赖
 pnpm install
 #开发环境启动
