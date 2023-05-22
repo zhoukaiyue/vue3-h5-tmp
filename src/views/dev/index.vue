@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-19 14:09:12
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-03-28 19:24:32
+ * @LastEditTime: 2023-05-22 11:52:42
 -->
 
 <template>
@@ -55,6 +55,10 @@ const findRouterList = ref([
     {
         path: '/dev/request',
         label: 'axios库的使用案列'
+    },
+    {
+        path: '/dev/plugin',
+        label: 'cli自带的一些特色插件'
     }
 ]);
 
