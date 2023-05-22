@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-18 16:28:54
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 14:15:17
+ * @LastEditTime: 2023-05-22 11:52:09
  */
 const routes = [
     {
@@ -67,6 +67,16 @@ const routes = [
         // 这会为此路由生成一个单独的块 (index.[hash].js)
         // 访问路由时延迟加载。
         component: () => import('@/views/dev/components/tabbar/index.vue')
+    },
+    {
+        path: '/dev/plugin',
+        meta: {
+            title: 'cli自带的一些特色插件'
+        },
+        // 路由级代码拆分
+        // 这会为此路由生成一个单独的块 (index.[hash].js)
+        // 访问路由时延迟加载。
+        component: () => import('@/views/dev/components/plugin/index.vue')
     }
 ];
 export default routes;
