@@ -4,45 +4,38 @@
  * @Author: zhoukai
  * @Date: 2022-09-29 16:37:24
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-01-30 10:03:58
+ * @LastEditTime: 2023-06-01 15:49:35
 -->
+
+<script setup lang="ts"></script>
 
 <template>
     <frame-view class="dev-layout">
-        基础布局组件是用来布局的，集成了tabbar（底部导航栏，用于在不同页面之间进行切换。）功能于一体。
-        <br />
-        <br />
-        <span>什么时候使用？</span>
-        <br />
-        <span>如果你的src不是作为业务组件使用而是作为一个单独的页面，那么你应该使用它。</span>
-        <br />
-        <span>语法： 使用 "frame-view" 作为标签即可，就像当前页面这样。</span>
-        <br />
-        <br />
-        注：由于基础布局组件（'src/layout'）以及全局基础组件（'src/resources/components/*'）
-        默认全局自动导入了，所以不需要在sfc里面或者其他地方再次注册。
+        <p>基础布局组件是用来布局的，集成了tabbar（底部导航栏，用于在不同页面之间进行切换。）功能于一体。</p>
+        <p><br /></p>
+        <strong style="text-align: start">何时使用</strong>
+        <ul>
+            <li style="text-align: start">&nbsp;&nbsp;&nbsp;- 常用于路由组件的根标签使用。</li>
+        </ul>
+        <p style="text-align: start"><br /></p>
+        <strong style="text-align: start">代码演示</strong>
+        <p>
+            <span style="color: rgb(171, 178, 191)">&lt;</span>
+            <span style="color: rgb(224, 108, 117)">frame-view</span>
+            <span style="color: rgb(171, 178, 191)"></span>
+            <span style="color: rgb(209, 154, 102)">class</span>
+            <span style="color: rgb(171, 178, 191)">=</span>
+            <span style="color: rgb(152, 195, 121)">"dev-layout"</span>
+            <span style="color: rgb(171, 178, 191)">&gt;</span>
+        </p>
+        <p><span style="color: rgb(171, 178, 191)">&nbsp; &nbsp;xxx</span></p>
+        <p>
+            <span style="color: rgb(171, 178, 191)">&lt;/</span>
+            <span style="color: rgb(224, 108, 117)">frame-view&gt;</span>
+        </p>
+        <p><br /></p>
     </frame-view>
 </template>
-
-<script lang="ts">
-export default {
-    name: 'dev-layout',
-    props: [],
-    setup() {
-        const state = reactive({});
-        onBeforeMount(() => {
-            console.log('2.组件挂载页面之前执行----onBeforeMount');
-        });
-        onMounted(() => {
-            console.log('3.-组件挂载到页面之后执行-------onMounted');
-        });
-        const refState = toRefs(state);
-        return {
-            ...refState
-        };
-    }
-};
-</script>
 
 <style scoped lang="scss">
 .dev-layout {
@@ -50,10 +43,6 @@ export default {
         color: '#333';
         padding: 40px;
         font-size: 32px;
-        span {
-            font-size: 18px;
-            font-weight: bold;
-        }
     }
 }
 </style>
