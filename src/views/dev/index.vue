@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-19 14:09:12
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-05-22 11:52:42
+ * @LastEditTime: 2023-06-01 15:50:49
 -->
 
 <template>
@@ -37,14 +37,6 @@ const findRouterList = ref([
         label: 'layOut 布局组件的使用'
     },
     {
-        path: '/dev/list',
-        label: 'list 下拉刷新滚动加载列表'
-    },
-    {
-        path: '/dev/lodashjs',
-        label: 'lodashjs 库的使用规范'
-    },
-    {
         path: '/dev/tabbar',
         label: 'tabbar 底部标签栏'
     },
@@ -53,12 +45,8 @@ const findRouterList = ref([
         label: 'pinia状态管理的使用'
     },
     {
-        path: '/dev/request',
-        label: 'axios库的使用案列'
-    },
-    {
-        path: '/dev/plugin',
-        label: 'cli自带的一些特色插件'
+        path: '/dev/tool',
+        label: '脚手架已经集成的工具库'
     }
 ]);
 
