@@ -2,11 +2,11 @@
  * @Descripttion:
  * @version:
  * @Author: zhoukai
- * @Date: 2022-08-08 10:53:58
+ * @Date: 2022-10-18 13:53:26
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-08-10 17:28:00
+ * @LastEditTime: 2023-06-25 17:27:33
  */
-import { Toast } from 'vant';
+import Loading from './components/loading.js';
 
 // 计数
 let COUNT = 0;
@@ -14,18 +14,14 @@ let COUNT = 0;
 const laoding = {
     show() {
         if (COUNT === 0) {
-            Toast.loading({
-                duration: 0,
-                loadingType: 'spinner',
-                message: '加载中…'
-            });
+            Loading.open();
         }
         COUNT++;
     },
     hide() {
         if (COUNT <= 0) return;
         COUNT--;
-        if (COUNT === 0) Toast.clear();
+        if (COUNT === 0) Loading.close();
     }
 };
 
