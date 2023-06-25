@@ -4,18 +4,18 @@
  * @Author: zhoukai
  * @Date: 2022-10-20 11:14:19
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-01-30 10:12:31
+ * @LastEditTime: 2023-06-25 16:05:54
 -->
 
 <template>
     <div id="root-router-view" class="top-safe-area bottom-safe-area">
-        <router-view v-slot="{ Component }">
+        <router-view v-slot="{ Component, route }">
             <!-- 缓存的视图 -->
             <keep-alive>
-                <component v-if="$route.meta.keepAlive" :is="Component" />
+                <component v-if="route.meta.keepAlive" :key="route.name || route.fullPath" :is="Component" />
             </keep-alive>
             <!-- 不缓存的视图 -->
-            <component v-if="!$route.meta.keepAlive" :is="Component" />
+            <component v-if="!route.meta.keepAlive" :is="Component" />
         </router-view>
     </div>
 </template>
