@@ -211,9 +211,9 @@ vue3-h5-tmp
 │  ├─ config                             // 业务配置目录
 │  │  ├─ apis                            // 所有接口相关
 │  │  │  ├─ dev                          // 接口切片
-│  │  │  │  ├─ index.ts                  // 接口创建文件
+│  │  │  │  ├─ getListDev.ts             // 接口创建文件
 │  │  │  │  │  └─ validation             // 接口验证器相关
-│  │  │  │  │     └─ getListDev.ts       // 接口验证器核心文件
+│  │  │  │  │     └─ getListDev.d.ts     // 接口验证器核心文件
 │  │  │  └─ README.md                    // 接口创建说明文档
 │  │  ├─ router                          // 所有路由相关
 │  │  │  ├─ dev.ts                       //

@@ -1,3 +1,12 @@
+<!--
+ * @Descripttion:
+ * @version:
+ * @Author: zhoukai
+ * @Date: 2023-03-27 17:50:05
+ * @LastEditors: zhoukai
+ * @LastEditTime: 2023-09-22 16:08:19
+-->
+
 ## 接口创建规范
 
 🚀 项目中使用到的接口都应当在该文件夹下，根据功能或者模块名称创建接口切片文件。
@@ -11,9 +20,9 @@
 ```ts
 // app.vue
 // 导入功能接口函数
-import { getListDev } from '@/config/apis/dev';
+import { getListDev } from '@/config/apis/dev/getListDev';
 // 导入接口验证器
-import type { getListDevValidator } from '@/config/apis/dev/validation';
+import type { getListDevValidator } from '@/config/apis/dev/validation/getListDev';
 export default {
     name: 'dev-request',
     props: [],
@@ -53,8 +62,8 @@ export default {
 ```
 ├─ apis
 │  ├─ dev                           // 接口切片
-│  │  ├─ index.ts                   // 接口创建文件
+│  │  ├─ getListDev.ts                   // 接口创建文件
 │  │  │  └─ validation              // 接口验证器相关
-│  │  │     └─ getListDev.ts        // 接口验证器核心文件
+│  │  │     └─ getListDev.d.ts        // 接口验证器核心文件
 │  └─ README.md                     // 接口创建说明文档
 ```
