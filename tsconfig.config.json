@@ -4,6 +4,7 @@
   "compilerOptions": {
     "composite": true,
     "types": ["node"],
-    "allowSyntheticDefaultImports":true
+    "allowSyntheticDefaultImports":true,
+    "ignoreDeprecations": "5.0"
   }
 }
