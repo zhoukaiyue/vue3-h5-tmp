@@ -9,6 +9,7 @@
     },
     "isolatedModules":true,
     "lib": ["es2015", "es2016", "dom", "es2018.promise"],
+    "ignoreDeprecations": "5.0"
   },
 
   "references": [

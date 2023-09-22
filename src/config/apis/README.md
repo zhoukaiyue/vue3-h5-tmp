@@ -1,18 +1,17 @@
 <!--
- * @Descripttion: 接口创建规范
+ * @Descripttion:
  * @version:
  * @Author: zhoukai
- * @Date: 2022-10-18 17:41:55
+ * @Date: 2023-03-27 17:50:05
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-03-27 17:47:49
+ * @LastEditTime: 2023-09-22 16:08:19
 -->
 
 ## 接口创建规范
 
 🚀 项目中使用到的接口都应当在该文件夹下，根据功能或者模块名称创建接口切片文件。
-🚀 接口验证器统一放到该切片下的 validation/modeule 中，每个接口的验证器尽量独立成一个.ts 文件。
+🚀 接口验证器统一放到该切片下的 validation/modeule 中，每个接口的验证器尽量独立成一个.d.ts 文件。
 🚀 每一个接口验证器应该是一个空间，空间名称以 接口名称+Validator 命名，如 接口名称 getListDev，则空间名称应该是 getListDevValidator，这样就可以尽量减少变量命名重复。
-🚀 接口验证器最终需要在文件下的 validation 中的 index.ts 文件中导出。
 
 注： 具体可参考 dev 模块的相关接口创建规范。
 
@@ -21,9 +20,9 @@
 ```ts
 // app.vue
 // 导入功能接口函数
-import { getListDev } from '@/config/apis/dev';
+import { getListDev } from '@/config/apis/dev/getListDev';
 // 导入接口验证器
-import type { getListDevValidator } from '@/config/apis/dev/validation';
+import type { getListDevValidator } from '@/config/apis/dev/validation/getListDev';
 export default {
     name: 'dev-request',
     props: [],
@@ -63,10 +62,8 @@ export default {
 ```
 ├─ apis
 │  ├─ dev                           // 接口切片
-│  │  ├─ index.ts                   // 接口创建文件
+│  │  ├─ getListDev.ts                   // 接口创建文件
 │  │  │  └─ validation              // 接口验证器相关
-│  │  │     ├─ index.ts             // 接口验证器统一导出文件
-│  │  │     └─ module               // 接口验证器切片
-│  │  │        └─ getListDev.ts     // 接口验证器核心文件
+│  │  │     └─ getListDev.d.ts        // 接口验证器核心文件
 │  └─ README.md                     // 接口创建说明文档
 ```
