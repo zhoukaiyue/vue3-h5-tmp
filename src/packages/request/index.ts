@@ -14,8 +14,8 @@ import axios from 'axios';
 import type { AxiosRequestConfigNew } from './type';
 // QS 模块
 import QS from 'qs';
-// 请求库laoding
-import laoding from './loading';
+// 请求库loading
+import loading from './loading';
 // 取消重复请求
 import { addPendingMap, removePendingRequest } from './cancel';
 // 请求重发
@@ -80,7 +80,7 @@ const enableErrorMessage = true;
 axios.interceptors.request.use(
     function (config: AxiosRequestConfigNew) {
         // 显示loading
-        laoding.show();
+        loading.show();
 
         // 全局开关开启并且该请求也允许
         if (enableCancelModel && config.enableCancelModel !== false) {
@@ -95,7 +95,7 @@ axios.interceptors.request.use(
     },
     function (error) {
         // 隐藏loading
-        laoding.hide();
+        loading.hide();
 
         // 对请求错误做些什么
         return Promise.reject(error);
@@ -106,7 +106,7 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
     function (response) {
         // 隐藏loading
-        laoding.hide();
+        loading.hide();
 
         // 响应正常时候就从pending队列清除该请求
         enableCancelModel && removePendingRequest(response.config);
@@ -116,7 +116,7 @@ axios.interceptors.response.use(
     },
     function (error) {
         // 隐藏loading
-        laoding.hide();
+        loading.hide();
 
         // 响应失败也要从pending队列清除该请求
         enableCancelModel && error.config && removePendingRequest(error.config);
