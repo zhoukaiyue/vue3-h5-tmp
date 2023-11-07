@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /*
  * @Descripttion:axios终极封装，包含取消重复请求、请求错误重试、loading、http错误状态码处理等基本功能与交互
  * @version:
@@ -142,8 +143,6 @@ axios.interceptors.response.use(
  * @param {*} config 指定配置（会与实例的配置合并，如果存在重复设置，将以指定配置中的为准），默认为{}
  * @returns {Promise}
  */
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const $post = (url: string, params: any, config = {}): Promise<any> => {
     return new Promise((resolve, reject) => {
         axios
@@ -165,12 +164,31 @@ export const $post = (url: string, params: any, config = {}): Promise<any> => {
  * @param {*} config 指定配置（会与实例的配置合并，如果存在重复设置，将以指定配置中的为准），默认为{}
  * @returns {Promise}
  */
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const $http = (url: string, params: any, config = {}): Promise<any> => {
     return new Promise((resolve, reject) => {
         axios
             .post(url, params, config)
+            .then((res) => {
+                resolve(res.data);
+            })
+            .catch((err) => {
+                reject(err);
+            });
+    });
+};
+
+/**
+ * get请求
+ * 使用场景：适用于你的请求类型是get
+ * @param {string} url 接口地址
+ * @param {object} params 入参
+ * @param {AxiosRequestConfig} config 其他配置项，默认为{}
+ * @returns {Promise}
+ */
+export const $get = (url: string, params: any, config = {}): Promise<any> => {
+    return new Promise((resolve, reject) => {
+        axios
+            .get(url, { params, ...config })
             .then((res) => {
                 resolve(res.data);
             })
