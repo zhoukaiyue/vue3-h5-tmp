@@ -25,6 +25,7 @@
         "@types/qs": "^6.9.7",
         "autoprefixer": "^10.4.12",
         "axios": "^1.2.1",
+        "cssnano": "^6.0.2",
         "dayjs": "^1.11.7",
         "lodash": "^4.17.21",
         "pinia": "^2.0.21",

@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-20 13:53:16
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-12-19 14:52:41
+ * @LastEditTime: 2024-01-03 15:02:16
  */
 
 
@@ -21,6 +21,7 @@ module.exports = {
                 return file.indexOf('vant') !== -1 ? 37.5 : 75;
             },
             propList: ['*']
-        }
+        },
+        ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
     }
 };
