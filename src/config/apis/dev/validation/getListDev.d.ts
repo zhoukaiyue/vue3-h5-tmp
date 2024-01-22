@@ -1,124 +1,50 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 /*
- * @Descripttion:
+ * @Descripttion: getListDev 接口入参出参类型定义
  * @version:
  * @Author: zhoukai
  * @Date: 2022-10-18 16:46:44
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-10-20 15:38:52
+ * @LastEditTime: 2024-01-22 09:59:35
  */
 
 export namespace getListDevValidator {
-    /** 接口入参类型定义 */
+    /**
+     * 接口入参类型定义
+     */
     export interface ParamType {
+        /** 门店id */
         id: number;
     }
-    /** 接口回参类型定义 */
+
+    /**
+     * 接口返回数据类型定义
+     */
     export interface Data {
+        /** 默认字符串 */
         defaultVarchar: string;
-        pageList: PageList[];
+        /** 页码 */
         pageNum: number;
+        /** 每页条数 */
         pageSize: number;
+        /** 总数 */
         totalCnt: number;
+        /** 总页数 */
         totalPage: number;
     }
-
-    export interface PageList {
-        areaId: number;
-        areaName: string;
-        areaNameAllSpell: string;
-        attention: number;
-        attributionType: number;
-        buildingDirectionCode: number;
-        buildingDirectionName: string;
-        buildingId: number;
-        coverPictureUrl: string;
-        createYear?: number;
-        dataSourcesFlg: string;
-        domainAccount: string;
-        estateAddress: string;
-        estateId: number;
-        estateName: string;
-        estateNameAllSpell: string;
-        fangdiDistrictCode: string;
-        firstNumber: string;
-        fixTypeCode: number;
-        fixTypeName: string;
-        fullTwoFiveFlg?: number;
-        grade: string;
-        hallNum: number;
-        havePhotoFlg: number;
-        haveVideoFlg: number;
-        haveVrFlg: number;
-        issueDate: string;
-        issueInfo: string;
-        issueStatus: number;
-        keyEntrustFlg: number;
-        latitude: string;
-        layerHighLowTypeCode: number;
-        layerHighLowTypeName: string;
-        leadLookNum: number;
-        longitude: string;
-        nearBusStop: number;
-        nearBusinessZone: number;
-        nearFoodMarket: number;
-        nearHospital: number;
-        nearSubwayFlg: number;
-        nearestMetro: string;
-        netWorkBkCaseNo: string;
-        pickHouseFlg: number;
-        plateId: number;
-        plateName: string;
-        plateNameAllSpell: string;
-        price: number;
-        priceUnit: number;
-        primaryKeyId: number;
-        propertyAttachVOList: PropertyAttachVOList[];
-        propertyId: string;
-        propertyNumber: string;
-        propertySquare: number;
-        propertyTitle: string;
-        propertyType: number;
-        propertyeffectiveId: number;
-        reducePriceInfo: string;
-        roomHall: string;
-        roomHallToilet: string;
-        roomId: number;
-        roomNum: number;
-        sceneryHouseFlg: number;
-        schoolAreaHouseFlg: number;
-        takeLookNum: number;
-        takeLookTimeTypeCode?: number;
-        tipPriceTag: number;
-        tipPriceTagName: string;
-        toiletNum: number;
-        totalLayerSurface: number;
-        totalMoney: string;
-        tradeNo: string;
-        onlyOneFlg?: number;
-    }
-
-    export interface PropertyAttachVOList {
-        attachUrl: string;
-        coverPictureFlg: number;
-        picLevel: number;
-        propertyAttachId: number;
-        propertyAttachSourceCode: number;
-        propertyAttachSourceName: string;
-        propertyAttachTypeCode: number;
-        propertyAttachTypeName: string;
-        propertyPictureTypeCode: number;
-        propertyPictureTypeName: string;
-        roleType: number;
-        sort: number;
-        tableName: string;
-    }
-
+    /**
+     * 接口返回类型定义
+     */
     export interface ReturnType {
+        /** 业务代码 */
         businessCode: string;
+        /** 业务数据 */
         data: Data;
+        /** 错误代码 */
         errorCode: string;
+        /** 错误消息 */
         msg: string;
+        /** 成功标志 */
         success: boolean;
     }
 }

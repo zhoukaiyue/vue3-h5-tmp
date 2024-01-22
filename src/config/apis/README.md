@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2023-03-27 17:50:05
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-09-22 16:08:19
+ * @LastEditTime: 2024-01-22 09:47:04
 -->
 
 ## 接口创建规范
@@ -62,8 +62,8 @@ export default {
 ```
 ├─ apis
 │  ├─ dev                           // 接口切片
-│  │  ├─ getListDev.ts                   // 接口创建文件
+│  │  ├─ getListDev.ts              // 接口创建文件
 │  │  │  └─ validation              // 接口验证器相关
-│  │  │     └─ getListDev.d.ts        // 接口验证器核心文件
+│  │  │     └─ getListDev.d.ts      // 接口验证器核心文件
 │  └─ README.md                     // 接口创建说明文档
 ```
