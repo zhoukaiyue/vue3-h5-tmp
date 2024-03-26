@@ -1,7 +1,7 @@
 {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "eslint.enable": true,
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "eslint.run": "onType",
     "eslint.validate": ["javascript", "vue", "javascriptreact", "typescript", "typescriptreact"],
     "ProjectTree.withComment": true,
@@ -14,5 +14,8 @@
     "vetur.validation.template": false,
     "vetur.validation.script": false,
     "vetur.validation.style": false,
-    "scss.lint.unknownAtRules": "ignore"
+    "scss.lint.unknownAtRules": "ignore",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    }
 }
