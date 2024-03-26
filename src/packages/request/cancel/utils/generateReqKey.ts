@@ -4,11 +4,11 @@
  * @Author: zhoukai
  * @Date: 2022-11-09 14:21:38
  * @LastEditors: zhoukai
- * @LastEditTime: 2022-12-09 10:46:50
+ * @LastEditTime: 2024-03-26 10:50:05
  */
 import type { AxiosRequestConfigNew } from '../../type';
 // 工具函数
-import { isJson, isJsonStr } from '@/utils/validate';
+import { isJson, isJsonStr } from '@/utils';
 
 // QS 模块
 import QS from 'qs';
