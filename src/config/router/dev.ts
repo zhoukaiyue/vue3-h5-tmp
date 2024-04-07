@@ -4,7 +4,7 @@
  * @Author: zhoukai
  * @Date: 2022-10-18 16:28:54
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-06-01 15:25:51
+ * @LastEditTime: 2024-04-07 17:20:42
  */
 const routes = [
     {
@@ -77,6 +77,20 @@ const routes = [
         // 这会为此路由生成一个单独的块 (index.[hash].js)
         // 访问路由时延迟加载。
         component: () => import('@/views/dev/components/tool/components/lodashjs.vue')
+    },
+    {
+        path: '/dev/basic-components',
+        meta: {
+            title: '内置组件的使用'
+        },
+        component: () => import('@/views/dev/components/basic-components/index.vue')
+    },
+    {
+        path: '/dev/basic-components/ellipsis',
+        meta: {
+            title: '组件 | Ellipsis文本省略组件'
+        },
+        component: () => import('@/views/dev/components/basic-components/components/ellipsis.vue')
     }
 ];
 export default routes;

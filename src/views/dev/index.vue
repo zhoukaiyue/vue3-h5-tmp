@@ -1,10 +1,18 @@
 <!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: zhoukai
+ * @Date: 2024-04-07 17:13:24
+ * @LastEditors: zhoukai
+ * @LastEditTime: 2024-04-07 17:27:57
+-->
+<!--
  * @Descripttion: demo页
  * @version: 1.0.0
  * @Author: zhoukai
  * @Date: 2022-10-19 14:09:12
  * @LastEditors: zhoukai
- * @LastEditTime: 2023-06-01 15:50:49
+ * @LastEditTime: 2024-04-07 17:19:18
 -->
 
 <template>
@@ -16,7 +24,7 @@
         </div>
         <div class="pt-[12px] pb-[12px]">下面是一些基础组件的使用demo，可以点进去试一试</div>
         <div class="mt-[20px]">
-            <div class="nav-card" v-for="(item, index) in findRouterList" :key="index" @click="goPage(item)">
+            <div class="nav-card" v-for="(item, index) in findRouterList" :key="index" @click="goPage(item.path)">
                 <span>{{ item.label }}</span>
                 <van-icon name="arrow" size="16" color="#B6C3D2" />
             </div>
@@ -25,13 +33,8 @@
 </template>
 
 <script setup lang="ts">
-// 定义 goPage 函数入参类型声明
-export interface Gptype {
-    path: string;
-    label: string;
-}
-
-const findRouterList = ref([
+import type { RouteInfo } from './type'; // Importing the renamed type
+const findRouterList = ref<RouteInfo[]>([
     {
         path: '/dev/layOut',
         label: 'layOut 布局组件的使用'
@@ -47,13 +50,17 @@ const findRouterList = ref([
     {
         path: '/dev/tool',
         label: '脚手架已经集成的工具库'
+    },
+    {
+        path: '/dev/basic-components',
+        label: '内置组件的使用'
     }
 ]);
 
 const router = useRouter();
 
-function goPage({ path }: Gptype) {
-    router.push({ path });
+function goPage(path: string) {
+    router.push(path);
 }
 </script>
 
