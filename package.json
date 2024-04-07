@@ -1,6 +1,6 @@
 {
     "name": "vue3-h5-tmp",
-    "version": "v1.5.5",
+    "version": "v1.6.5",
     "scripts": {
         "dev": "vite  --mode development",
         "start": "npm run dev",
